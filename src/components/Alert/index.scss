@@ -1,0 +1,70 @@
+// *Default
+$defultBg: rgb(29 31 32/71%);
+$defultColor: #c8c8c8;
+$defultBorder: #c8c8c8;
+
+// *Info
+
+$infoBg: rgb(100 108 255/8%);
+$infoColor: #bcc0ff;
+$infoBorder: #bcc0ff;
+
+// *warning
+
+$warningBg: rgb(255 197 23/5%);
+$warningColor: #fcd253;
+$warningBorder: rgba(255, 213, 0, 0793);
+
+// *error
+
+$errorBg: rgb(192 29 29/5%);
+$errorColor: #ef8d8dfa;
+$errorBorder: rgba(255, 25, 0, 0332);
+
+// *success
+
+$successBg: rgb(246 238 9 /0.127);
+$successColor: #7acf58d6;
+$successBorder: rgba(0, 255, 0, 0322);
+
+// *default mixin
+
+@mixin alert($name, $borderColor, $bgColor, $txtColor) {
+  .#{$name} {
+    border: 2px dotted $borderColor;
+    border-radius: 0.8rem;
+    padding: 1.3rem;
+    background: $bgColor;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    .alert-header {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      span svg {
+        margin-right: 0.9rem;
+        cursor: pointer;
+      }
+      h4 {
+        margin-left: 0.9rem;
+      }
+    }
+    .alert-Title {
+      display: flex;
+      color: $txtColor;
+    }
+    p {
+      margin-top: 1rem;
+      color: $txtColor;
+      font-size: 0.9rem;
+      font-weight: 500;
+      line-height: 1.5rem;
+    }
+  }
+}
+
+@include alert("Alert-erorr", $errorBorder, $errorBg, $errorColor);
+@include alert("Alert-warning", $warningBorder, $warningBg, $warningColor);
+@include alert("Alert-success", $successBorder, $successBg, $successColor);
+@include alert("Alert-info", $infoBorder, $infoBg, $infoColor);
+@include alert("Alert-default", $defultBorder, $defultBg, $defultColor);
